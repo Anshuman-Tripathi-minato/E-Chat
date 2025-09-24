@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>E-Chat — Registration</title>
+	<link rel="stylesheet" href="./EChat-register.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="header">
+				<div class="badge">🔐</div>
+				<h1 class="title">E-Chat</h1>
+				<p class="subtitle">Create your account to receive your 8‑character ID for secure messaging</p>
+			</div>
+
+			<div id="form" class="form-section">
+				<div class="form-group">
+					<label for="name">Full Name</label>
+					<input id="name" type="text" placeholder="Enter your full name" />
+				</div>
+				<div class="form-group">
+					<label for="mobile">Mobile Number</label>
+					<input id="mobile" type="tel" placeholder="Enter your mobile number" />
+				</div>
+				<div class="actions">
+					<button id="btnRegister">Get My ID</button>
+				</div>
+			</div>
+
+			<div id="result" class="result-section" style="display:none;">
+				<div class="result-header">
+					<div class="result-icon">✅</div>
+					<div>
+						<h3 class="result-title">Registration Successful!</h3>
+						<p class="result-subtitle">Your unique ID has been generated</p>
+					</div>
+				</div>
+				
+				<div class="id-display">
+					<input id="myId" class="id-input" readonly />
+					<button id="btnCopy" class="copy-btn">Copy</button>
+				</div>
+				
+				<div class="actions">
+					<a id="loginLink" href="./ITC.html" class="login-link">
+						<button>Go to Login</button>
+					</a>
+				</div>
+				
+				<p class="small">Use this ID to log in to E-Chat. Keep it safe and don't share it with others.</p>
+			</div>
+
+			<div id="status" class="status warn">Ready to register</div>
+		</div>
+	</div>
+
+	<script src="./EChat-register.js"></script>
+</body>
+</html>

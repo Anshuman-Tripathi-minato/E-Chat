@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Chat — Encrypted</title>
+  <link rel="stylesheet" href="./ITC.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="card sidebar">
+      <header>
+        <div class="header-left">
+          <div class="badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div>
+            <div style="font-weight:700;">E-Chat</div>
+            <div class="muted">Logged in as <span id="meId" style="font-weight:600;">—</span></div>
+          </div>
+        </div>
+        <div class="header-right">
+        </div>
+      </header>
+
+      <div id="auth">
+        <h3>Login</h3>
+        <div class="row">
+          <input id="logUser" maxlength="8" placeholder="enter your 8-char ID" />
+          <button id="btnLogin">Login</button>
+        </div>
+        <div class="small">Need an ID? Open the registration page and create one.</div>
+        <div class="row">
+          <a href="./EChat-register.html"><button>Open Registration</button></a>
+        </div>
+      </div>
+
+      <div id="presence" style="display:none">
+        <div class="row" style="justify-content:space-between;">
+          <button id="btnLogout">Logout</button>
+        </div>
+        <ul id="connList" class="statusList"></ul>
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input id="searchBox" placeholder="Search user" />
+          </div>
+          <button id="btnStart">Start</button>
+        </div>
+        
+        <div class="list-header">
+          <h3>Chats</h3>
+        </div>
+        <ul id="chats"></ul>
+        <button id="btnNewGroup" class="new-group-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>New Group</span>
+        </button><br>
+        <div class="small">Tip: For group chat, enter multiple IDs separated by commas.</div>
+      </div>
+
+      <div id="status" class="status warn">Idle</div>
+    </aside>
+
+    <main class="card chat">
+      <header id="chatHeader" style="cursor: pointer;">
+        <div class="titleWrap">
+          <button class="icon-btn" id="menuBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+          <div class="avatar" id="activeAvatar">--</div>
+          <div>
+            <div id="activeTitle" style="font-weight:700;">No chat</div>
+            <div class="muted" id="activeSubtitle">—</div>
+          </div>
+        </div>
+        <div class="headerInfo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>End-to-end encrypted</span>
+        </div>
+      </header>
+      <div id="log" class="log"></div>
+      <div class="input-area">
+        <div class="input-wrapper">
+          <button class="icon-btn" id="btnEmoji"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg></button>
+          <button class="icon-btn" id="btnAttach"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg></button>
+          <input id="msg" type="text" placeholder="Type a message…" disabled />
+          <input id="fileInput" type="file" style="display:none" multiple accept="image/*,.pdf" />
+        </div>
+        <button id="send" class="send-btn" disabled><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+      </div>
+      <div class="small">Messages are end‑to‑end encrypted. History clears automatically when the session ends.</div>
+    </main>
+  </div>
+
+  <!-- Encryption Details Modal -->
+  <div id="encryptionModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Encryption Details</h3>
+        <button id="closeModal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="encryption-info">
+          <div class="key-section">
+            <h4>🔐 Encryption Key</h4>
+            <div class="key-display">
+              <code id="encryptionKey">Generating...</code>
+              <button id="copyKey" class="copy-btn">Copy</button>
+            </div>
+            <p class="key-info">This 256-bit key is unique to this conversation and provides military-grade encryption.</p>
+          </div>
+          <div id="groupMembers" class="members-section" style="display: none;">
+            <h4>👥 Group Members</h4>
+            <ul id="memberList"></ul>
+          </div>
+          <div class="security-info">
+            <h4>🛡️ Security Level</h4>
+            <p>This conversation uses AES-256-GCM encryption with ECDH key exchange. The encryption strength is so high that it would take longer than the age of the universe to crack.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Group Modal -->
+  <div id="newGroupModal" class="modal" style="display:none;">
+    <div class="modal-content" style="max-width:400px;">
+      <div class="modal-header">
+        <h3>New Group</h3>
+        <button id="closeNewGroupModal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:20px;">
+          <div style="width:72px;height:72px;border-radius:50%;background:#f3f4f6;display:flex;align-items:center;justify-content:center;position:relative;">
+            <svg width="40" height="40" fill="none" stroke="#14b8a6" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+            <label for="groupIconInput" style="position:absolute;bottom:0;right:0;background:#14b8a6;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+              <svg width="16" height="16" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15A7 7 0 1 0 21 12.6"/></svg>
+              <input id="groupIconInput" type="file" accept="image/*" style="display:none;">
+            </label>
+          </div>
+        </div>
+        <input id="groupNameInput" type="text" placeholder="Enter group name" style="width:100%;margin-bottom:12px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--panel-2);color:var(--text);font-size:15px;">
+        <input id="groupMembersInput" type="text" placeholder="Enter member IDs (comma separated)" style="width:100%;margin-bottom:12px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--panel-2);color:var(--text);font-size:15px;">
+        <div style="display:flex;gap:12px;width:100%;justify-content:flex-end;">
+          <button id="cancelNewGroup" class="copy-btn" style="background:#e5e7eb;color:#222;">Cancel</button>
+          <button id="createNewGroup" class="copy-btn">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(async()=>{
+  const $=id=>document.getElementById(id);
+  const enc=new TextEncoder(), dec=new TextDecoder();
+  let ws, myId=null, myName=null;
+  const peers = new Map();
+
+  const b64 = {
+    enc: buf => btoa(String.fromCharCode(...new Uint8Array(buf))),
+    dec: str => Uint8Array.from(atob(str), c=>c.charCodeAt(0)).buffer
+  };
+
+  function setStatus(t,cls){ $('status').textContent=t; $('status').className="status "+cls; }
+  function fmtTime(){
+    const d=new Date();
+    return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  }
+  function addMsg(txt,mine=false,sys=false){
+    let d=document.createElement("div");
+    d.className="bubble "+(sys?"sys":mine?"me":"them");
+    d.textContent = sys ? txt : `[${fmtTime()}] ${txt}`;
+    $('log').appendChild(d); $('log').scrollTop=$('log').scrollHeight;
+  }
+  function clearChat(){ $('log').innerHTML=''; $('msg').value=''; }
+  function enableChat(enabled){ $('msg').disabled=!enabled; $('send').disabled=!enabled; }
+
+  // Crypto
+  const genKey=()=>crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveBits']);
+  const expJwk=k=>crypto.subtle.exportKey('jwk',k);
+  const impJwk=jwk=>crypto.subtle.importKey('jwk',jwk,{name:'ECDH',namedCurve:'P-256'},false,[]);
+  const randomSalt=()=>{let u=new Uint8Array(16);crypto.getRandomValues(u);return u.buffer;}
+  const derive=async(priv,pub,s)=>{let bits=await crypto.subtle.deriveBits({name:'ECDH',public:pub},priv,256);let base=await crypto.subtle.importKey('raw',bits,'HKDF',false,['deriveKey']);return crypto.subtle.deriveKey({name:'HKDF',hash:'SHA-256',salt:s,info:enc.encode("e-chat")},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);}
+  const iv=()=>crypto.getRandomValues(new Uint8Array(12));
+  const encrypt=async (key,m)=>{let i=iv();let c=await crypto.subtle.encrypt({name:'AES-GCM',iv:i},key,enc.encode(m));return{iv:b64.enc(i),ct:b64.enc(c)};}
+  const decrypt=async (key,o)=>dec.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64.dec(o.iv)},key,b64.dec(o.ct)));
+
+  function wireDC(peerId,c){
+    const state = peers.get(peerId);
+    state.dc=c;
+    c.onopen=()=>{ setStatus("✅ Connected","ok"); enableChat(true); addMsg("Connected to "+peerId,false,true); };
+    c.onmessage=async e=>{
+      let m=JSON.parse(e.data);
+      if(m.type==="cipher"){ addMsg("["+peerId+"] "+await decrypt(state.sharedKey,m),false); }
+    };
+    c.onclose=()=>cleanupPeer(peerId);
+  }
+
+  function cleanupPeer(peerId){
+    const st = peers.get(peerId);
+    if(!st) return;
+    try{ if(st.dc) st.dc.close(); }catch{}
+    try{ if(st.pc) st.pc.close(); }catch{}
+    peers.delete(peerId);
+    if(peers.size===0){ enableChat(false); setStatus("Session ended. History cleared.","warn"); clearChat(); }
+    if($('activeTitle').textContent===peerId){
+      $('activeTitle').textContent='No chat';
+      $('activeSubtitle').textContent='—';
+      $('activeAvatar').textContent='--';
+    }
+  }
+
+  function cleanupAll(){
+    const ids = Array.from(peers.keys());
+    ids.forEach(id=>cleanupPeer(id));
+    enableChat(false);
+    clearChat();
+  }
+
+  // WebSocket signaling
+  function connectWS(){
+    if(ws && ws.readyState===WebSocket.OPEN) return;
+    const host = location.hostname || 'localhost';
+    const scheme = location.protocol==='https:' ? 'wss://' : 'ws://';
+    ws=new WebSocket(scheme+host+':8080');
+
+    ws.onopen=()=>setStatus('Connected to signaling','ok');
+    ws.onclose=()=>{ setStatus('Signaling disconnected','err'); };
+
+    ws.onmessage=async ev=>{
+      const msg=JSON.parse(ev.data);
+      if(msg.type==='error'){ addMsg('Error: '+msg.message,false,true); return; }
+      // registration messages are not handled here (separate registration page)
+      if(msg.type==='logged_in'){ myId=msg.userId; myName=msg.name; $('meId').textContent=myId; $('auth').style.display='none'; $('presence').style.display='block'; return; }
+      if(msg.type==='logged_out'){ myId=null; $('auth').style.display='block'; $('presence').style.display='none'; cleanupAll(); setStatus('Logged out','warn'); return; }
+      if(msg.type==='presence'){ renderOnline(msg.online); return; }
+      if(msg.type==='signal'){ await onSignal(msg.from, msg.payload); return; }
+    };
+  }
+
+  function renderOnline(list){
+    const ul=$('online'); ul.innerHTML='';
+    const meConn = peers.size>0 ? Array.from(peers.keys()).map(p=>`Connected to ${p}`) : [];
+    const connList=$('connList'); connList.innerHTML='';
+    meConn.forEach(t=>{ const li=document.createElement('li'); li.className='statusItem'; li.innerHTML=`<span class="dot"></span><span>${t}</span>`; connList.appendChild(li); });
+    $('onlineCount').textContent=String(list.length);
+    list.filter(id=>id!==myId).forEach(id=>{
+      const li=document.createElement('li');
+      li.className='user';
+      li.innerHTML=`<div class="avatar">${id.slice(0,2)}</div><div style="font-weight:600;">${id}</div>`;
+      li.onclick=()=>{ setActivePeer(id); startCall(id); };
+      ul.appendChild(li);
+    });
+  }
+
+  // Signaling helpers
+  function sendSignal(to,payload){ ws.send(JSON.stringify({type:'signal', to, payload})); }
+
+  function setActivePeer(id){
+    $('activeTitle').textContent=id||'No chat';
+    $('activeSubtitle').textContent=id? 'Online' : '—';
+    $('activeAvatar').textContent=(id&&id.slice(0,2))||'--';
+  }
+
+  async function startCall(targetId){
+    if(!myId) return;
+    if(peers.has(targetId)) return;
+    const pc=new RTCPeerConnection({iceServers:[{urls:"stun:stun.l.google.com:19302"}]});
+    const state={ pc, dc:null, keyPair:await genKey(), sharedKey:null, salt:randomSalt() };
+    peers.set(targetId,state);
+    wireDC(targetId, pc.createDataChannel('chat'));
+    const pub=await expJwk(state.keyPair.publicKey);
+    pc.onicecandidate=e=>{ if(e.candidate) sendSignal(targetId,{kind:'ice',candidate:e.candidate}); };
+    const offer=await pc.createOffer(); await pc.setLocalDescription(offer);
+    sendSignal(targetId,{kind:'offer', sdp:pc.localDescription, crypto:{pub,salt:b64.enc(state.salt)}});
+    setActivePeer(targetId);
+    setStatus('Offer sent…','warn');
+  }
+
+  async function onSignal(from, payload){
+    // Incoming message handler
+    if(payload.kind==='offer'){
+      const pc=new RTCPeerConnection({iceServers:[{urls:"stun:stun.l.google.com:19302"}]});
+      const state={ pc, dc:null, keyPair:await genKey(), sharedKey:null, salt:b64.dec(payload.crypto.salt) };
+      peers.set(from,state);
+      pc.ondatachannel=e=>wireDC(from,e.channel);
+      state.sharedKey=await derive(state.keyPair.privateKey, await impJwk(payload.crypto.pub), state.salt);
+      pc.onicecandidate=e=>{ if(e.candidate) sendSignal(from,{kind:'ice',candidate:e.candidate}); };
+      await pc.setRemoteDescription(payload.sdp);
+      const ans=await pc.createAnswer(); await pc.setLocalDescription(ans);
+      const pub=await expJwk(state.keyPair.publicKey);
+      sendSignal(from,{kind:'answer', sdp:pc.localDescription, crypto:{pub,salt:payload.crypto.salt}});
+      setActivePeer(from);
+      setStatus('Answer sent…','warn');
+    } else if(payload.kind==='answer'){
+      const st = peers.get(from);
+      if(!st) return;
+      st.sharedKey=await derive(st.keyPair.privateKey, await impJwk(payload.crypto.pub), b64.dec(payload.crypto.salt));
+      await st.pc.setRemoteDescription(payload.sdp);
+      setActivePeer(from);
+    } else if(payload.kind==='ice'){
+      const st = peers.get(from);
+      if(!st) return;
+      try{ await st.pc.addIceCandidate(payload.candidate); }catch{}
+    }
+  }
+
+  async function send(){ 
+    let txt=$('msg').value.trim(); if(!txt) return;
+    for(const [pid, st] of peers){
+      if(st.dc && st.dc.readyState==='open' && st.sharedKey){
+        let pkt=await encrypt(st.sharedKey, txt); pkt.type="cipher";
+        st.dc.send(JSON.stringify(pkt));
+      }
+    }
+    addMsg(txt,true);
+    $('msg').value="";
+  }
+  $('send').onclick=send;
+  $('msg').onkeydown=e=>{ if(e.key==="Enter"){e.preventDefault();send();} };
+
+  // Auth actions
+  $('btnLogin').onclick=()=>{ 
+    const id=$('logUser').value.trim();
+    if(!/^[A-Z0-9]{8}$/.test(id)){ setStatus('Enter valid 8-char ID','err'); return; }
+    connectWS();
+    const sendLogin = () => { try { ws.send(JSON.stringify({type:'login', userId:id})); setStatus('Logging in…','warn'); } catch(e){} };
+    if(ws && ws.readyState===WebSocket.OPEN){ sendLogin(); }
+    else { ws.addEventListener('open', function once(){ ws.removeEventListener('open', once); sendLogin(); }); }
+  };
+  $('btnLogout').onclick=()=>{ if(ws && ws.readyState===WebSocket.OPEN) ws.send(JSON.stringify({type:'logout'})); };
+
+  // Start via search box (single or group)
+  $('btnStart').onclick=()=>{
+    const val=$('searchBox').value.trim(); if(!val) return; 
+    val.split(',').map(s=>s.trim()).filter(Boolean).forEach(id=>startCall(id));
+  };
+
+  })();
+</script>
+<script src="./ITC.js"></script>
+</body>
+</html>
