@@ -1,17 +1,29 @@
 {
-  "name": "desktop",
+  "name": "e-chat",
   "version": "1.0.0",
+  "description": "Secure End-to-End Encrypted Messaging Application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "chat",
+    "messaging",
+    "encryption",
+    "webrtc",
+    "secure"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "ws": "^8.18.3"
+    "google-auth-library": "^10.5.0",
+    "ws": "^8.19.0"
   }
 }

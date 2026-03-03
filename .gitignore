@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Database
+e_chat_db.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Optional: Keep package-lock.json for consistent installs
+# package-lock.json
+

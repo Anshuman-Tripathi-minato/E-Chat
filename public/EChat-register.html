@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>E-Chat — Registration</title>
 	<link rel="stylesheet" href="./EChat-register.css" />
+	<script src="./google-config.js"></script>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 	<div class="container">
@@ -16,13 +18,38 @@
 			</div>
 
 			<div id="form" class="form-section">
+				<!-- Google Sign-In Button -->
+				<div class="google-signin-container">
+					<div id="g_id_onload" data-client_id="" data-callback="handleGoogleSignIn" data-auto_prompt="false"></div>
+					<div id="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left" data-width="100%"></div>
+				</div>
+				
+				<div class="divider">
+					<span>OR</span>
+				</div>
+				
+				<!-- Manual Gmail Registration -->
+				<div class="form-group">
+					<label for="gmail">Gmail Address</label>
+					<input id="gmail" type="email" placeholder="Enter your Gmail address" />
+				</div>
 				<div class="form-group">
 					<label for="name">Full Name</label>
 					<input id="name" type="text" placeholder="Enter your full name" />
 				</div>
+				
+				<!-- Original Mobile Registration -->
+				<div class="divider">
+					<span>OR</span>
+				</div>
+				
 				<div class="form-group">
 					<label for="mobile">Mobile Number</label>
 					<input id="mobile" type="tel" placeholder="Enter your mobile number" />
+				</div>
+				<div >
+					<input type="checkbox" id="remember" name="remember" checked>
+					<label for="remember">Important info</label>
 				</div>
 				<div class="actions">
 					<button id="btnRegister">Get My ID</button>

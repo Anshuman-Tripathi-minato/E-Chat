@@ -1,0 +1,73 @@
+# E-Chat Requirements
+# This file lists all required dependencies and system requirements
+
+# ============================================
+# SYSTEM REQUIREMENTS
+# ============================================
+# - Node.js 14.x or higher (recommended: 18.x LTS)
+# - npm 6.x or higher
+# - Modern web browser with WebRTC support
+
+# ============================================
+# NPM PACKAGES (install with: npm install)
+# ============================================
+express@^5.1.0
+ws@^8.19.0
+google-auth-library@^10.5.0
+dotenv@^17.2.3
+
+# ============================================
+# INSTALLATION COMMAND
+# ============================================
+# npm install
+
+# ============================================
+# ALTERNATIVE: Manual Installation
+# ============================================
+# npm install express@^5.1.0
+# npm install ws@^8.19.0
+# npm install google-auth-library@^10.5.0
+# npm install dotenv@^17.2.3
+
+# ============================================
+# NODE.JS BUILT-IN MODULES (No installation needed)
+# ============================================
+# - http
+# - path
+# - fs
+
+# ============================================
+# BROWSER API (Built-in, no installation)
+# ============================================
+# - WebRTC (RTCPeerConnection, RTCDataChannel)
+# - WebSocket API
+# - Crypto API (SubtleCrypto)
+# - File API
+
+# ============================================
+# OPTIONAL EXTERNAL SERVICES
+# ============================================
+# - Google OAuth Client ID (for Google Sign-In)
+#   Get from: https://console.cloud.google.com/
+#   Instructions: See GOOGLE_SIGNIN_SETUP.md
+
+# ============================================
+# ENVIRONMENT VARIABLES (Configure in .env file)
+# ============================================
+# GOOGLE_CLIENT_ID=your-client-id-here.apps.googleusercontent.com
+# PORT=8080
+# ECHAT_DB_FILE=./e_chat_db.json
+
+# ============================================
+# PORT CONFIGURATION
+# ============================================
+# Default: 8080
+# Change via environment variable: PORT=3000
+
+# ============================================
+# DATABASE
+# ============================================
+# File-based JSON database
+# Default location: e_chat_db.json
+# Auto-created on first run
+

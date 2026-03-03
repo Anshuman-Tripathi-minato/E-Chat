@@ -1,0 +1,58 @@
+================================================================================
+E-Chat - Installation Requirements & Instructions
+================================================================================
+
+MINIMAL REQUIREMENTS FOR ANOTHER PC/DESKTOP:
+============================================
+
+1. NODE.JS (Required)
+   - Version: 14.0.0 or higher (Recommended: 18.x LTS)
+   - Download: https://nodejs.org/
+   - This also installs npm automatically
+
+2. NPM PACKAGES (Install after Node.js):
+   Run this command in project folder:
+   
+   npm install
+   
+   This installs:
+   - express@^5.1.0
+   - ws@^8.19.0
+   - All sub-dependencies automatically (~150 packages total)
+
+3. FILES TO COPY:
+   - server.js
+   - package.json
+   - public/ folder (all HTML, CSS, JS files)
+   - Optional: package-lock.json (for consistent installs)
+   - Optional: README.md, SETUP.md (documentation)
+
+4. FILES NOT NEEDED (will be created):
+   - node_modules/ (install with: npm install)
+   - e_chat_db.json (created automatically on first run)
+
+QUICK INSTALLATION STEPS:
+=========================
+
+Step 1: Install Node.js from nodejs.org (if not installed)
+Step 2: Copy project folder to new PC
+Step 3: Open terminal in project folder
+Step 4: Run: npm install
+Step 5: Run: npm start
+Step 6: Open browser: http://localhost:8080
+
+DETAILED INFORMATION:
+=====================
+See README.md for complete documentation
+See SETUP.md for quick setup guide
+See requirements.txt for dependency list
+
+CONTACT & SUPPORT:
+==================
+- Check console for errors
+- Verify Node.js version: node --version
+- Verify npm version: npm --version
+- Ensure port 8080 is not in use
+
+================================================================================
+

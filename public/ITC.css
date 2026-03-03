@@ -349,6 +349,52 @@ li.user:hover, li.user.active{ background: #e0f2fe; border-color: #bae6fd; }
 
 
 
+/* Voice recording indicator */
+#voiceRecordingIndicator {
+  display: none;
+  padding: 8px 16px;
+  background: #fee2e2;
+  border-top: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 13px;
+  align-items: center;
+  gap: 8px;
+}
+
+.recording-dot {
+  width: 10px;
+  height: 10px;
+  background: #dc2626;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.icon-btn.recording {
+  background: #fee2e2;
+  color: #dc2626;
+  animation: recordingPulse 1s ease-in-out infinite;
+}
+
+@keyframes recordingPulse {
+  0%, 100% {
+    background: #fee2e2;
+  }
+  50% {
+    background: #fecaca;
+  }
+}
+
 .file-bubble {
     padding: 12px;
     display: inline-block;
@@ -383,6 +429,17 @@ li.user:hover, li.user.active{ background: #e0f2fe; border-color: #bae6fd; }
 .file-size {
     font-size: 12px;
     color: var(--muted);
+}
+
+.voice-note-bubble {
+    padding: 12px;
+    display: inline-block;
+    max-width: 320px;
+    min-width: 200px;
+}
+
+.voice-note-bubble audio {
+    margin-top: 8px;
 }
 
 /* Make the chat list scrollable */

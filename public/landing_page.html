@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Chat - Secure End-to-End Encrypted Messaging</title>
+    <meta name="description" content="Military-grade end-to-end encrypted messaging app. Secure conversations with AES-256 encryption, 8-character IDs, and zero data collection. Privacy guaranteed.">
+    <meta name="author" content="E-Chat">
+    <meta name="keywords" content="encrypted chat, secure messaging, end-to-end encryption, private chat, AES-256, secure communication">
+    
+    <meta property="og:title" content="E-Chat - Secure End-to-End Encrypted Messaging">
+    <meta property="og:description" content="Military-grade end-to-end encrypted messaging with AES-256 encryption. Your conversations stay private with zero data collection.">
+    <meta property="og:type" content="website">
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="E-Chat - Secure Messaging">
+    <meta name="twitter:description" content="End-to-end encrypted messaging with military-grade security">
+   
+    <link rel="stylesheet" href="Lstyles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="./google-config.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        .btn-google-modal:hover {
+            background: #f9fafb !important;
+            border-color: #d1d5db !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+            transform: translateY(-1px);
+        }
+        .btn-google-modal:active {
+            transform: translateY(0) !important;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <!-- App Icon -->
+            <div class="app-icon-container">
+                <div class="app-icon">
+                    <i data-lucide="lock"></i>
+                    <div class="security-badge">
+                        <i data-lucide="shield"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="brand-name">E-Chat</span>
+                <br>
+                <span class="hero-subtitle">Secure. Private. Encrypted.</span>
+            </h1>
+            
+            <p class="hero-description">
+                Military-grade end-to-end encryption for your most important conversations. 
+                Connect securely with friends, family, and teams without compromising your privacy.
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary">
+                    <i data-lucide="message-circle"></i>
+                    Start Secure Chat
+                </button>
+               
+            </div>
+
+            <!-- Key Features Pills -->
+            <div class="feature-pills">
+                <div class="pill">🔐 AES-256 Encryption</div>
+                <div class="pill">📱 8-Character Secure IDs</div>
+                <div class="pill">👥 Group Messaging</div>
+                <div class="pill">🚫 No Data Tracking</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-header">
+                <h2>Why Choose E-Chat?</h2>
+                <p>Built with privacy and security as our foundation, E-Chat delivers military-grade protection for your conversations.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon primary">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3>End-to-End Encryption</h3>
+                    <p>Every message is protected with AES-256 encryption. Not even we can read your conversations - only you and your recipients have the keys.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon secondary">
+                        <i data-lucide="key"></i>
+                    </div>
+                    <h3>Secure 8-Character IDs</h3>
+                    <p>No phone numbers or emails required. Connect with friends using unique 8-character secure IDs that protect your identity.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon accent">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3>Private Group Chats</h3>
+                    <p>Create secure group conversations with up to 256 members. Perfect for teams, families, or close friend groups.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon success">
+                        <i data-lucide="eye-off"></i>
+                    </div>
+                    <h3>Zero Data Collection</h3>
+                    <p>We don't track, store, or analyze your data. Your privacy is guaranteed with our zero-knowledge architecture.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon warning">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Instant message delivery with minimal battery usage. Built for performance without compromising security.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon info">
+                        <i data-lucide="smartphone"></i>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>Available on iOS, Android, Windows, macOS, and Linux. Your conversations sync securely across all devices.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon warning">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <h3>Auto-Clear Sessions</h3>
+                    <p>For maximum security, peer sessions automatically clear after 5-30 minutes of inactivity. Your conversation history vanishes - leaving no trace for anyone to access.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon accent">
+                        <i data-lucide="timer"></i>
+                    </div>
+                    <h3>Smart File Transfer Protection</h3>
+                    <p>File transfers automatically timeout after 5 minutes if interrupted. This prevents partial data exposure and ensures only complete, verified files are received.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-section">
+        <div class="container">
+            <div class="how-header">
+                <h2>How E-Chat Works</h2>
+                <p>Simple, private, and fast — here’s what each feature means in plain language.</p>
+            </div>
+
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-icon">
+                        <i data-lucide="message-square"></i>
+                    </div>
+                    <h3>Secure Chatting</h3>
+                    <p>Messages are encrypted on your device and can only be opened by the people you chat with. No one else can read them.</p>
+                </div>
+
+                <div class="how-card">
+                    <div class="how-icon">
+                        <i data-lucide="paperclip"></i>
+                    </div>
+                    <h3>Peer-to-Peer File Transfer</h3>
+                    <p>Files move directly between devices — not through a storage server. This keeps transfers private and reduces delays.</p>
+                </div>
+
+                <div class="how-card">
+                    <div class="how-icon">
+                        <i data-lucide="mic"></i>
+                    </div>
+                    <h3>Voice Message Chatting</h3>
+                    <p>Send short voice messages when typing is hard. Record, send, and play them securely inside your chat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg-pattern">
+            <div class="pattern-circle pattern-circle-1"></div>
+            <div class="pattern-circle pattern-circle-2"></div>
+        </div>
+        
+        <div class="cta-content">
+            <h2>Ready to Secure Your Conversations?</h2>
+            <p>Join thousands of users who trust E-Chat for their most important communications. 
+               Get your secure 8-character ID and start chatting safely today.</p>
+
+            <div class="cta-buttons">
+                <button class="btn btn-secondary">
+                    <i data-lucide="message-circle"></i>
+                    Get Your Secure ID
+                    <i data-lucide="arrow-right"></i>
+                </button>
+                
+                <!-- New Register Yourself button -->
+                <button id="btnOpenRegister" class="btn btn-primary">
+                    <i data-lucide="user-plus"></i>
+                    Register Yourself
+                </button>
+            </div>
+
+            
+
+            <div class="cta-guarantee">
+                <p>✓ No credit card required • ✓ Instant setup • ✓ 100% secure</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Modal (hidden by default) -->
+    <div id="registerModal" style="display:none; position:fixed; z-index:9999; inset:0; background:rgba(0,0,0,0.5); padding:24px; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+        <div style="background:white; border-radius:16px; max-width:480px; width:100%; margin:auto; box-shadow:0 20px 60px rgba(0,0,0,0.1); position:relative;">
+            <button id="btnCloseRegister" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+            <div class="card" style="box-shadow:none; border:none; padding:32px;">
+                <div class="header">
+                    <div class="badge">🔐</div>
+                    <h1 class="title">E-Chat</h1>
+                    <p class="subtitle">Create your account to receive your 8‑character ID for secure messaging</p>
+                </div>
+                <div id="form" class="form-section">
+                    <!-- Google Sign-In Button -->
+                    <div class="google-signin-container" style="margin-bottom: 24px; width: 100%;">
+                        <div id="g_id_onload_modal" data-client_id="" data-callback="handleGoogleSignInModal" data-auto_prompt="false"></div>
+                        <div id="g_id_signin_modal" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left" data-width="100%"></div>
+                    </div>
+                    
+                    <div class="divider" style="display: flex; align-items: center; text-align: center; margin: 24px 0; color: #6b7280; font-size: 14px; font-weight: 500;">
+                        <div style="flex: 1; border-bottom: 1px solid #e5e7eb;"></div>
+                        <span style="padding: 0 16px;">OR</span>
+                        <div style="flex: 1; border-bottom: 1px solid #e5e7eb;"></div>
+                    </div>
+                    
+                    <!-- Manual Gmail Registration -->
+                    <div class="form-group">
+                        <label for="gmailModal">Gmail Address</label>
+                        <input id="gmailModal" type="email" placeholder="Enter your Gmail address" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input id="name" type="text" placeholder="Enter your full name" />
+                    </div>
+                    
+                    <!-- Original Mobile Registration -->
+                    <div class="divider" style="display: flex; align-items: center; text-align: center; margin: 24px 0; color: #6b7280; font-size: 14px; font-weight: 500;">
+                        <div style="flex: 1; border-bottom: 1px solid #e5e7eb;"></div>
+                        <span style="padding: 0 16px;">OR</span>
+                        <div style="flex: 1; border-bottom: 1px solid #e5e7eb;"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input id="mobile" type="tel" placeholder="Enter your mobile number" />
+                       </div>
+                       <div >
+                        <input  type="checkbox" id="remember" name="remember" checked>
+                        <label for="remember">Important info</label>
+                       </div>
+                       <div class="actions">
+                        <button id="btnRegister">Get My ID</button>
+                       </div>
+                </div>
+                <div id="result" class="result-section" style="display:none;">
+                    <div class="result-header">
+                        <div class="result-icon">✅</div>
+                        <div>
+                            <h3 class="result-title">Registration Successful!</h3>
+                            <p class="result-subtitle">Your unique ID has been generated</p>
+                        </div>
+                    </div>
+                    <div class="id-display">
+                        <input id="myId" class="id-input" readonly />
+                        <button id="btnCopy" class="copy-btn">Copy</button>
+                    </div>
+                    <div class="actions">
+                        <a id="loginLink" href="./ITC.html" class="login-link">
+                            <button>Go to Login</button>
+                        </a>
+                    </div>
+                    <p class="small">Use this ID to log in to E-Chat. Keep it safe and don't share it with others.</p>
+                </div>
+                <div id="status" class="status warn">Ready to register</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i data-lucide="shield"></i>
+                        </div>
+                        <span class="logo-text">E-Chat</span>
+                    </div>
+                    <p class="footer-description">
+                        Military-grade end-to-end encrypted messaging for secure, private communication. 
+                        Your conversations, protected by unbreakable cryptography.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="mail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li ><a href="#">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2025 E-Chat. All rights reserved. Built with privacy and security in mind.
+                </p>
+                <div class="footer-badges">
+                    <span class="badge">🔐 AES-256 Encrypted</span>
+                    <span class="badge">🛡️ Zero Data Collection</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Lscript.js"></script>
+</body>
+</html>
