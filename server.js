@@ -33,15 +33,24 @@ function saveDb() {
 const app = express();
 
 // Middleware
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json()); // Parse JSON bodies
 
-// Set COOP/COEP headers to allow Google OAuth postMessage
+// Set security and CORS headers for Google OAuth
 app.use((req, res, next) => {
+  // Allow CORS for API endpoints
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
+  // Allow Google OAuth with popup communication
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
-  res.setHeader('Cross-Origin-Embedder-Policy', 'credentialless');
+  // Don't set COEP - it can interfere with Google Sign-In
+  
   next();
 });
+
+// Serve static files
+app.use(express.static(path.join(__dirname, "public")));
 
 // Initialize Google OAuth2Client
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
