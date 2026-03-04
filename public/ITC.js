@@ -940,6 +940,29 @@
   // Start via search box (single or group)
 	$('btnStart').onclick=()=>{ const val=$('searchBox').value.trim(); if(!val) return; val.split(',').map(s=>s.trim()).filter(Boolean).forEach(id=>startCall(id)); };
 
+	// Mobile menu button - toggle sidebar visibility
+	const menuBtn = $('menuBtn');
+	const sidebar = $('sidebar');
+	if (menuBtn && sidebar) {
+		menuBtn.onclick = () => {
+			sidebar.classList.toggle('mobile-visible');
+		};
+		// Close sidebar when selecting a chat on mobile
+		const sidebars = $('sidebar');
+		if (sidebars) {
+			sidebars.addEventListener('click', (e) => {
+				// Check if clicked element is a chat item
+				const chatItem = e.target.closest('li.user');
+				if (chatItem && window.innerWidth <= 480) {
+					// Close sidebar after selecting chat on mobile
+					setTimeout(() => {
+						sidebar.classList.remove('mobile-visible');
+					}, 100);
+				}
+			});
+		}
+	}
+
 	// Modal event listeners
 	const chatHeader = $('chatHeader');
 	const closeModal = $('closeModal');
