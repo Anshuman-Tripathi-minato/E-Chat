@@ -448,3 +448,255 @@ li.user:hover, li.user.active{ background: #e0f2fe; border-color: #bae6fd; }
   overflow-y: auto;
 }
 
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile First - Extra Small (320px - 480px) */
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 8px;
+        gap: 8px;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+    
+    .chat {
+        min-height: calc(100vh - 80px);
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .sidebar.mobile-visible {
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+    }
+    
+    .sidebar header {
+        padding: 12px;
+        gap: 4px;
+    }
+    
+    .badge {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    #auth {
+        padding: 12px;
+    }
+    
+    #auth input, #auth button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    #presence {
+        padding: 12px;
+    }
+    
+    .search-container {
+        gap: 6px;
+    }
+    
+    #searchBox {
+        padding: 8px 12px 8px 32px;
+        font-size: 14px;
+    }
+    
+    #btnStart {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    h3 {
+        font-size: 12px;
+    }
+    
+    .muted {
+        font-size: 12px;
+    }
+    
+    .avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+    
+    li.user {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .chat-name {
+        font-size: 14px;
+    }
+    
+    .chat-preview {
+        font-size: 12px;
+    }
+    
+    .bubble {
+        padding: 8px 12px;
+        max-width: 85%;
+        font-size: 14px;
+    }
+    
+    .input-area {
+        gap: 6px;
+        padding: 8px 0;
+    }
+    
+    .input-wrapper {
+        padding: 6px 10px;
+        gap: 6px;
+    }
+    
+    .send-btn {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+        padding: 2px;
+    }
+    
+    #btnLogout {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    
+    .status {
+        margin: 12px 8px;
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .log {
+        padding: 10px;
+        gap: 8px;
+        margin: 4px 0;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-width: none;
+        padding: 0;
+        border-radius: 12px;
+    }
+    
+    .modal-header {
+        padding: 16px;
+    }
+    
+    .modal-header h3 {
+        font-size: 16px;
+    }
+    
+    .close-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+    }
+    
+    .modal-body {
+        padding: 16px;
+    }
+    
+    .new-group-btn {
+        padding: 10px;
+        margin-top: 12px;
+        font-size: 13px;
+    }
+    
+    .file-bubble {
+        max-width: 90%;
+    }
+    
+    .voice-note-bubble {
+        max-width: 90%;
+        min-width: 160px;
+    }
+}
+
+/* Small Devices (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .bubble {
+        max-width: 80%;
+    }
+    
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* Tablet (641px - 900px) */
+@media (min-width: 641px) and (max-width: 900px) {
+    .container {
+        grid-template-columns: 280px 1fr;
+    }
+    
+    .bubble {
+        max-width: 75%;
+    }
+    
+    .modal-content {
+        width: 85%;
+    }
+}
+
+/* Medium Devices (901px - 1024px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    .container {
+        grid-template-columns: 300px 1fr;
+    }
+    
+    .bubble {
+        max-width: 70%;
+    }
+}
+
+/* Large Devices (1025px and above) */
+@media (min-width: 1025px) {
+    .container {
+        grid-template-columns: 340px 1fr;
+    }
+    
+    .bubble {
+        max-width: 70%;
+    }
+}
+
+/* Ensure responsive text sizing */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .titleWrap h3 {
+        font-size: 16px;
+    }
+    
+    .headerInfo {
+        font-size: 12px;
+    }
+}

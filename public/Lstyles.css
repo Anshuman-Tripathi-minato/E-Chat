@@ -46,6 +46,8 @@ body {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Buttons */
@@ -127,6 +129,7 @@ body {
     justify-content: center;
     background: var(--gradient-hero);
     overflow: hidden;
+    padding: 2rem 0;
 }
 
 .hero-bg {
@@ -627,14 +630,292 @@ body {
     color: var(--muted-foreground);
 }
 
-/* Responsive Design */
-@media (min-width: 640px) {
+/* Responsive Design - Mobile First */
+
+/* Extra Small Devices (320px - 480px) */
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 3rem 0;
+        --container-max-width: 100%;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+    }
+    
+    .app-icon-container {
+        margin-bottom: 1rem;
+    }
+    
+    .app-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+    
+    .app-icon i {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .brand-name {
+        display: block;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    
+    .feature-pills {
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .pill {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .features-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .features-header p {
+        font-size: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+    
+    .feature-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .how-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .how-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .cta-content > p {
+        font-size: 1rem;
+    }
+    
+    .cta-guarantee {
+        font-size: 1rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        max-width: none;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-badges {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+}
+
+/* Small Devices (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .how-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-header h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+/* Tablet (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.75rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .how-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-header h2 {
+        font-size: 2.25rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.25rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: row;
+    }
+}
+
+/* Medium Devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 2.25rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .how-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.5rem;
+    }
+    
     .hero-buttons {
         flex-direction: row;
     }
     
     .cta-buttons {
         flex-direction: row;
+    }
+    
+    .footer-bottom {
+        flex-direction: row;
+    }
+}
+
+/* Large Devices (1025px and above) */
+@media (min-width: 1025px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 3rem;
+    }
+    
+    .features-header h2 {
+        font-size: 3rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 3rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+    }
+    
+    .cta-buttons {
+        flex-direction: row;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
     }
     
     .footer-bottom {
@@ -655,7 +936,7 @@ body {
     background: rgba(0,0,0,0.5);
     align-items: flex-start;
     justify-content: center;
-    padding: 24px;
+    padding: 1rem;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -663,49 +944,10 @@ body {
 #registerModal > div {
     width: 100%;
     max-width: 560px;
-    max-height: calc(100vh - 48px);
+    max-height: calc(100vh - 2rem);
     overflow-y: auto;
     border-radius: 16px;
-}
-@media (min-width: 768px) {
-    .hero-title {
-        font-size: 4rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 3rem;
-    }
-    
-    .features-header h2 {
-        font-size: 3rem;
-    }
-    
-    .cta-content h2 {
-        font-size: 3rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .footer-brand {
-        max-width: none;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 2rem;
-    }
-    
-    .hero-description {
-        font-size: 1.125rem;
-    }
+    margin: 1rem auto;
 }
 
 /* Dark mode support */
