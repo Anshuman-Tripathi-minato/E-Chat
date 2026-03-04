@@ -12,7 +12,8 @@
 		if (ws && ws.readyState === WebSocket.OPEN) return;
 		const host = location.hostname || 'localhost';
 		const scheme = location.protocol === 'https:' ? 'wss://' : 'ws://';
-		ws = new WebSocket(scheme + host + ':8080');
+		const port = host === 'localhost' ? ':8080' : '';
+		ws = new WebSocket(scheme + host + port);
 		
 		ws.onopen = () => setStatus('Connected to server', 'ok');
 		ws.onclose = () => setStatus('Disconnected from server', 'err');
