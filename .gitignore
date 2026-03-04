@@ -25,5 +25,6 @@ desktop.ini
 *~
 
 # Optional: Keep package-lock.json for consistent installs
-# package-lock.json
+# Uncommented to ensure consistent deployments
+
 
