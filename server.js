@@ -36,6 +36,13 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json()); // Parse JSON bodies
 
+// Set COOP/COEP headers to allow Google OAuth postMessage
+app.use((req, res, next) => {
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  res.setHeader('Cross-Origin-Embedder-Policy', 'credentialless');
+  next();
+});
+
 // Initialize Google OAuth2Client
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const client = new OAuth2Client(GOOGLE_CLIENT_ID);
