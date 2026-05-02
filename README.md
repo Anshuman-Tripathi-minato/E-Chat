@@ -1,6 +1,6 @@
 # E-Chat - Secure End-to-End Encrypted Messaging
 
-Deployed - [https://web-production-d1aa3.up.railway.app/](https://web-production-d1aa3.up.railway.app/)
+Deployed - [https://e-chat-production.up.railway.app/](https://e-chat-production.up.railway.app/) (if link not working then use VPN )
 
 A secure messaging application with military-grade encryption, supporting both mobile and Gmail registration, file transfers up to 500MB, and real-time communication.
 
